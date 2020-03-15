@@ -315,7 +315,9 @@ class SessionTool(Tool):
         sess.regenerate()
 
         # Grab cookie-relevant tool args
-        relevant = 'path', 'path_header', 'name', 'timeout', 'domain', 'secure'
+        relevant = ('path', 'path_header', 'name', 'timeout',
+                    'domain', 'secure', 'samesite')
+
         conf = dict(
             (k, v)
             for k, v in self._merged_args().items()
