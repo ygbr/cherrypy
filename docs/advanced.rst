@@ -387,6 +387,7 @@ There are several settings that can be enabled to make CherryPy pages more secur
     Rendering pages:
 
         #. Set HttpOnly cookies
+        #. Set SameSite session cookies
         #. Set XFrame options
         #. Enable XSS Protection
         #. Set the Content Security Policy
@@ -428,6 +429,7 @@ If you use :ref:`sessions <basicsession>` you can also enable these settings:
    # increase security on sessions
    tools.sessions.secure = True
    tools.sessions.httponly = True
+   tools.sessions.samesite = 'lax'
 
 
 If you use SSL you can also enable Strict Transport Security:
