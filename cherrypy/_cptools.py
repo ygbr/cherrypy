@@ -316,7 +316,7 @@ class SessionTool(Tool):
 
         # Grab cookie-relevant tool args
         relevant = ('path', 'path_header', 'name', 'timeout',
-                    'domain', 'secure', 'samesite', 'httponly')
+                    'domain', 'secure', 'same_site', 'httponly')
 
         conf = dict(
             (k, v)

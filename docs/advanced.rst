@@ -429,7 +429,7 @@ If you use :ref:`sessions <basicsession>` you can also enable these settings:
    # increase security on sessions
    tools.sessions.secure = True
    tools.sessions.httponly = True
-   tools.sessions.samesite = 'lax'
+   tools.sessions.same_site = 'lax'
 
 
 If you use SSL you can also enable Strict Transport Security:

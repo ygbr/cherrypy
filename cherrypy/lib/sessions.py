@@ -721,7 +721,7 @@ close.priority = 90
 
 def init(storage_type=None, path=None, path_header=None, name='session_id',
          timeout=60, domain=None, secure=False, clean_freq=5,
-         persistent=True, httponly=False, samesite='lax', debug=False,
+         persistent=True, httponly=False, same_site='lax', debug=False,
          # Py27 compat
          # *, storage_class=RamSession,
          **kwargs):
@@ -771,11 +771,11 @@ def init(storage_type=None, path=None, path_header=None, name='session_id',
         If False (the default) the cookie 'httponly' value will not be set.
         If True, the cookie 'httponly' value will be set (to 1).
     
-    samesite
+    same_site
         Sets the SameSite cookie attribute on the session cookie.
         Possible values are "lax" (the default), "strict" or None.
         Notice that None is passed as a str in the cookie value thus forcibly disabling
-        samesite for the session cookie, overriding the browser default.
+        same_site for the session cookie, overriding the browser default.
         To entirely disable relaying of the SameSite cookie attribute, you can set
         this to False.
 
@@ -841,11 +841,11 @@ def init(storage_type=None, path=None, path_header=None, name='session_id',
         cookie_timeout = None
     set_response_cookie(path=path, path_header=path_header, name=name,
                         timeout=cookie_timeout, domain=domain, secure=secure,
-                        httponly=httponly, samesite=samesite)
+                        httponly=httponly, same_site=same_site)
 
 
 def set_response_cookie(path=None, path_header=None, name='session_id',
-                        timeout=60, domain=None, secure=False, httponly=False, samesite='lax'):
+                        timeout=60, domain=None, secure=False, httponly=False, same_site='lax'):
     """Set a response cookie for the client.
 
     path
@@ -874,11 +874,11 @@ def set_response_cookie(path=None, path_header=None, name='session_id',
         If False (the default) the cookie 'httponly' value will not be set.
         If True, the cookie 'httponly' value will be set (to 1).
     
-    samesite
+    same_site
         Sets the SameSite cookie attribute on the session cookie.
         Possible values are "lax" (the default), "strict" or None.
         Notice that None is passed as a str in the cookie value thus forcibly disabling
-        samesite for the session cookie, overriding the browser default.
+        same_site for the session cookie, overriding the browser default.
         To entirely disable relaying of the SameSite cookie attribute, you can set
         this to False.
 
@@ -903,8 +903,8 @@ def set_response_cookie(path=None, path_header=None, name='session_id',
         if not cookie[name].isReservedKey('httponly'):
             raise ValueError('The httponly cookie token is not supported.')
         cookie[name]['httponly'] = 1
-    if samesite in ['lax', 'strict', None]:
-        cookie[name]['samesite'] = str(samesite)
+    if same_site in ['lax', 'strict', None]:
+        cookie[name]['samesite'] = str(same_site)
 
 
 def _add_MSIE_max_age_workaround(cookie, timeout):
